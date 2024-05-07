@@ -1,7 +1,7 @@
 skaitisanas_vardnica = {}
 testa_dati = []
 
-with open("teksts.txt", "r", encoding="utf-8") as f:
+with open("VarduSkaititajs/teksts.txt", "r", encoding="utf-8") as f:
     for rinda in f:
         dati = rinda.split(" ")
         for vards in dati:
@@ -25,9 +25,8 @@ for vards in testa_dati:
     else:
         skaitisanas_vardnica[vards]=1
 
-for atslega, vertiba in skaitisanas_vardnica.items():
-    print(atslega, vertiba)
 
 kartota_skaitisanas_vardnica = sorted(skaitisanas_vardnica.items(), key=lambda x: x[1], reverse=True)[:5]
 
-print(kartota_skaitisanas_vardnica)
+for atslega, vertiba in kartota_skaitisanas_vardnica:
+    print(atslega, ": ", vertiba)

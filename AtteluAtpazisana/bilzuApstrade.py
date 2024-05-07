@@ -22,17 +22,17 @@ from sklearn.metrics import r2_score as r2
 images = []
 labels = []
 
-image_address = "hous/"
+image_address = "AtteluAtpazisana/hous/"
 
 for names in os.listdir(image_address):
     image = Image.open(os.path.join(image_address, names)).resize((200, 200), Image.Resampling.NEAREST)
     images.append(np.array(image))
-    if "house" in names:
+    if "hous" in names:
         labels.append(1)
     else:
         labels.append(0)
 
-print(images)
+# print(images)
 
 
 images = np.array(images)
