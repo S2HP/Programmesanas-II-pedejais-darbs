@@ -1,3 +1,16 @@
+vardi = ["Anna", "Maija", "Jānis", "Kaspars"]
+uzvardi = ["Bērziņa", "Paija", "Ozols", "Kasprets"]
+vecums = [23,150,89,11]
+dzimums = ["s", "s", "v", "v"]
+
+
+for cilveks in visi:
+    info = cilveks.split(" ")
+    vardi.append(info[0])
+    uzvardi.append(info[1])
+    vecums1 = int(info[3].rstrip(","))
+    vecums.append(vecums1)
+    dzimums.append(info[4])
 def ierakstit(teksts, faila_nosaukums):
     fails = open(faila_nosaukums, "w", encoding='utf-8')
     fails.write(teksts)
@@ -13,12 +26,13 @@ def nolasit(faila_nosaukums):
         rindas = fails.readlines()
     return rindas
 
-vardi = ["Anna", "Maija", "Jānis", "Kaspars"]
-uzvardi = ["Bērziņa", "Paija", "Ozols", "Kasprets"]
-vecums = [23,150,89,11]
-dzimums = ["s", "s", "v", "v"]
-
 ierakstit("", "PROGRAMMESANA1/faili/cilveki.txt")
+
+visi = nolasit("PROGRAMMESANA1/faili/cilveki.txt")
+vardi = []
+uzvardi = []
+vecums = []
+dzimums = []
 
 for i in range( len(vardi) ):
     if dzimums[i] == "s":
@@ -27,19 +41,6 @@ for i in range( len(vardi) ):
         rakstamais = "vīrietis"
     teksts = "{} {} - {}, {} \n".format(vardi[i], uzvardi[i], vecums[i], rakstamais)
     pierakstit(teksts, "PROGRAMMESANA1/faili/cilveki.txt" )
-
-visi = nolasit("PROGRAMMESANA1/faili/cilveki.txt")
-vardi = []
-uzvardi = []
-vecums = []
-dzimums = []
-for cilveks in visi:
-    info = cilveks.split(" ")
-    vardi.append(info[0])
-    uzvardi.append(info[1])
-    vecums1 = int(info[3].rstrip(","))
-    vecums.append(vecums1)
-    dzimums.append(info[4])
 
 def sutit_vestules(vardi, uzvardi, vecums, dzimums):
     for i in range(0, len(vardi)):
